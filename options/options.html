@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="options.css" />
+  <title>إعدادات AutoApplier</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="../icons/icon48.png" alt="" width="36" height="36" />
+      <div>
+        <h1>إعدادات AutoApplier</h1>
+        <p>إعدادات الذكاء الاصطناعي وقوالب العرض لمشاريع مستقل</p>
+      </div>
+    </header>
+
+    <form id="form">
+      <section class="card">
+        <h2>الذكاء الاصطناعي</h2>
+
+        <label class="field">
+          <span>رابط الـ API (OpenAI-compatible)</span>
+          <input type="text" id="apiBaseUrl" placeholder="https://api.openai.com/v1" />
+          <small>يعمل مع OpenAI وOpenRouter وGroq وأي مزوّد متوافق. أمثلة: <code>https://openrouter.ai/api/v1</code> أو <code>https://api.groq.com/openai/v1</code></small>
+        </label>
+
+        <label class="field">
+          <span>مفتاح الـ API</span>
+          <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>اسم النموذج</span>
+          <input type="text" id="model" placeholder="gpt-4o-mini" />
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>العرض (تفاصيل العرض)</h2>
+
+        <label class="field">
+          <span>رابط معرض أعمالك</span>
+          <input type="text" id="portfolioUrl" placeholder="https://mostaql.com/u/yourname/portfolio" />
+        </label>
+
+        <label class="field">
+          <span>اسمك (اختياري - لتوقيع العرض)</span>
+          <input type="text" id="freelancerName" placeholder="مثال: أحمد" />
+        </label>
+
+        <label class="field">
+          <span>تعليمات إضافية (اختياري)</span>
+          <textarea id="extraInstructions" rows="4" placeholder="مثال: ركّز دائماً على جودة التسليم وذكر سنوات الخبرة."></textarea>
+        </label>
+      </section>
+
+      <div class="actions">
+        <button type="submit" id="saveBtn" class="btn btn-primary">حفظ الإعدادات</button>
+        <button type="button" id="testBtn" class="btn">اختبار الاتصال بالذكاء الاصطناعي</button>
+      </div>
+      <div id="status" class="status hidden"></div>
+    </form>
+
+    <footer class="note">
+      <p><strong>ملاحظة الأمان:</strong> يُحفظ مفتاح الـ API محلياً في متصفحك فقط (chrome.storage) ولا يُرسل إلا إلى رابط الـ API الذي تحدده أنت.</p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "AutoApplier — مستقل",
+  "version": "1.0.0",
+  "description": "يقرأ المشاريع المفتوحة من مستقل ويجهّز ويرسل عرضاً آلياً لكل مشروع باستخدام الذكاء الاصطناعي.",
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": ["*://mostaql.com/*", "http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AutoApplier — مستقل",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://mostaql.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
